@@ -1,0 +1,8 @@
+/*estilo de section */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 100px; /* Ajusta este valor según la altura de tu header */
+ /* Ajusta este valor según la altura de tu footer */
+}

@@ -1,0 +1,54 @@
+/*Estilo de los botones de las card*/
+.custom-button {
+  background-color: #000 !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 0.5rem 1rem !important;
+  margin-top: 1rem !important; /* Ajusta el margen según tu diseño */
+  cursor: pointer;
+  transition: background-color 0.3s ease !important; /* Transición suave para el color de fondo */
+  font-size: 12px !important;
+  
+}
+
+.custom-button:hover {
+  background-color: #FAFA61 !important;
+  color: #000 !important;
+}
+
+
+/*estilo de los ButtunRegister de la vista previa  */
+.custom-btn{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 50px;
+  font-size: 15px !important;
+  
+}
+
+.custom-btn:hover {
+  background-color: #FAFA61   !important ;
+  border: #FAFA61 !important;
+  color:#000  !important;
+}
+
+.col-3 {
+  margin: 25px auto;
+
+}
+/*estilo del modal de calificacion*/
+.modal-dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+.modal {
+
+  overflow-y: hidden; 
+  overflow-x: hidden; 
+}

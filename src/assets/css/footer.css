@@ -1,0 +1,32 @@
+
+
+/* Estilos para el footer */
+footer {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  padding-top: 1rem;
+  text-align: center;
+  margin-top: auto; 
+  justify-content: end;
+}
+
+footer .container {
+  text-align: center;
+  
+}
+
+footer .text-center {
+  text-align: center;
+
+}
+
+footer .p-3 {
+  padding: 1rem !important;
+}
+
+.fab{
+  font-size: 25px;
+ 
+}
+

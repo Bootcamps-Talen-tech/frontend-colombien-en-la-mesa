@@ -1,0 +1,46 @@
+/*estilo de contendeor de form*/
+.content-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  
+}
+
+/*estilo de form*/
+.form-style-login{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 10px #000; /* Opcional: agrega una sombra */
+  border-radius: 10px; /* Opcional: redondea las esquinas */
+  background-color: #343a40!important; /* Opcional: establece un color de fondo */
+  padding: 35px 70px;
+}
+
+.text-p{
+  font-size: 12px ;
+  color:#fff !important;
+}
+
+
+/*estilo del boton de login*/
+.login-btn{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 50px;
+  width: 120px;
+  font-size: 15px !important;
+  background-color: #0008 !important;
+  border: #000 !important;
+  margin: auto;
+}
+
+.login-btn:hover {
+  background-color: #FAFA61   !important ;
+  border: #FAFA61 !important;
+  color:#000  !important;
+}

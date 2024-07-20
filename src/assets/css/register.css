@@ -1,0 +1,40 @@
+
+/*estilo del contenedor de form y de form de registro*/
+.form-control-lg {
+  font-size: 1.25rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.3rem;
+  
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width:400px;
+  box-shadow: 0 0 10px #000; /* Opcional: agrega una sombra */
+  border-radius: 10px; /* Opcional: redondea las esquinas */
+  background-color: #343a40!important; /* Opcional: establece un color de fondo */
+  padding: 35px 70px ;
+}
+
+.btn-lg {
+  background-color: #0008 !important;
+  padding: 0.5rem 1rem;
+  font-size: 15px !important;
+  border-radius: 0.3rem;
+}
+
+
+/*estilo de de los botones de registro*/
+.gradient-custom-4 {
+  height: 50px;
+  width: 100px;
+  background: #000 !important;
+  border: #000 !important;
+}
+.gradient-custom-4:hover{
+  background-color:#FAFA61 !important ;
+  color: #000 !important;
+}
