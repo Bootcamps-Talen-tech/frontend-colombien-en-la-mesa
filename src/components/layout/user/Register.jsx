@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import foto from '../../../assets/img/foto.jpg';
 import { useState } from "react";
-import '../../../assets/css/register.css'
+import '../../../assets/css/user/register.css'
 
 export const Register = () => {
 

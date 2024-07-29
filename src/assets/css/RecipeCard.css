@@ -1,0 +1,128 @@
+/*estilo de contenedor de vista de detalle de la receta*/
+
+.card-view {
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  max-width: auto;
+  margin:  20px;
+  padding: 5px 40px ;
+
+
+}
+
+.container-div{
+  margin: 5px;
+  padding: 15px;
+  box-shadow: 0px 0px 2px #0005;
+  border-radius: 5px;
+}
+
+/* contenedor de form*/
+.conte-form{
+  
+  padding: 15px;
+}
+
+.tex h2{
+  font-size: 40px;
+}
+
+.date{
+  padding: 5px;
+  font-size: 12px;
+}
+
+.recipe-image-section {
+ 
+  margin-bottom: 20px;
+}
+
+.recipe-image {
+  margin: auto;
+  max-width: 70%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.ingredients-section, .cooking-section {
+  margin-bottom: 20px;
+}
+
+.ingredients-container, .cooking-container {
+  padding: 10px;
+}
+
+
+h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-top: 5px;
+}
+
+
+
+/*estilo de contenedor de comentario*/
+.content-comment {
+  padding-left: 20px;
+  max-height: 500px; /* Ajusta la altura máxima según tus necesidades */
+  overflow-y: auto; 
+  padding: 2px;
+  background-color: #1111;
+  border-radius: 20px;
+}
+
+.comment{
+  background-color: #fff;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.comment-section{
+  padding: 8px;
+}
+
+.form-control-commet{
+  overflow: hidden;
+  align-content: center;
+  height: 45px;
+  max-height: 80px;
+  border-radius: 40px;
+  font-size: 15px;
+  padding: 0 25px;
+}
+
+.form-grupo-2{
+  border-radius: 12px;
+}
+
+
+.custom-button-3 {
+  margin:  0;
+}
+
+
+.user-image {
+  width: 50px;  /* Ajusta el tamaño según tus necesidades */
+  height: 50px; /* Ajusta el tamaño según tus necesidades */
+  border-radius: 50%; /* Esto hace que la imagen sea redonda */
+  object-fit: cover;  /* Esto asegura que la imagen se ajuste bien dentro del contenedor redondo */
+}
+
+
+
+

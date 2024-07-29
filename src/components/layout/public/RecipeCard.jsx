@@ -22,8 +22,8 @@ const RecipeCard = ({ recipe }) => {
         <p className="card-text">{recipe.description}</p>
 
         {/* Mostrar la calificación promedio de la receta */}
-        <div>
-          <span>Calificación promedio: </span>
+        <div className='d-flex fs-5'> 
+          <span>Calificación : </span>
           <StarRatings
             rating={recipe.averageRating}
             starRatedColor="gold"
@@ -33,12 +33,11 @@ const RecipeCard = ({ recipe }) => {
             name='averageRating'
             readOnly // Hacer la calificación solo de lectura para mostrar la calificación promedio.
           />
-        </div>
-
-        {/* Botón para abrir el modal de calificación */}
+                  {/* Botón para abrir el modal de calificación */}
         <Button className="custom-button" variant="primary" onClick={() => setShowModal(true)}>
           Calificar
         </Button>
+        </div>
       </div>
 
       {/* Modal para verificar que este autenticado para calificar */}

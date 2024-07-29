@@ -1,0 +1,40 @@
+/* RecipeCard.css */
+.edit-buttons {
+  position:absolute;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background: #0005;
+}
+
+.edit-buttons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2.5rem;
+
+  
+}
+
+.edit-buttons button:hover {
+  
+  background: none !important;
+}
+
+.edit-btn {
+  margin-right: 10px;
+  background: none !important;
+}
+
+.delete-btn:hover {
+  color: #dc3545 !important;
+ 
+}
+
+.edit-btn:hover {
+  color: rgb(115, 252, 115) !important ;
+  
+}
+

@@ -1,0 +1,185 @@
+.new-piblic {
+  
+  max-width: auto;
+  margin:  5px;
+  padding: 15px 20px ;
+ 
+}
+
+
+.input-from{
+  width: 95% !important;
+  
+}
+
+.textarea-from {
+  width: 100%; /* Asegura que los campos de texto se ajusten al ancho del contenedor */
+  margin-bottom: 10px; /* Añade margen inferior para separación */
+  font-size: 30px; /* Ajusta el tamaño de la fuente */
+}
+
+.vertical-hr {
+  border: none; /* Elimina el borde predeterminado */
+  border-left: 2px solid black; /* Añade un borde izquierdo */
+  height: 100%; /* Ajusta la altura según sea necesario */
+}
+
+.profile-pic {
+  width: 130px; /* Ajusta el tamaño según sea necesario */
+  height: 130px; /* Ajusta el tamaño según sea necesario */
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-container-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; /* Ajusta el margen según sea necesario */
+}
+.image-preview img {
+  max-width: 100%; /* Ajusta la imagen al ancho del contenedor */
+  max-height: 200px; /* Ajusta la altura máxima */
+  display: block;
+  margin: 10px 0; /* Añade algo de margen para separación */
+}
+
+.m-auto{
+  text-align: center;
+}
+.profile-container {
+  margin:auto ;
+  width: 95%;
+  border-radius: 4px;
+  background-color: #fff !important;
+  padding: 20px 10px;
+  box-shadow: 0px 0px 1px #0002;
+}
+
+.opcion{
+  text-align:end;
+  padding-right: 15px;
+}
+
+
+.subNav {
+  margin: 10px;
+  text-align: center;
+  font-size: 45px;
+  padding: 5px;
+  font-weight: bold;
+}
+
+
+
+
+.name {
+  text-align: center;
+}
+
+
+.input-from {
+  width: 100%; /* Asegura que los campos de entrada se ajusten al ancho del contenedor */
+  padding: 8px; /* Añade padding para hacer los campos más cómodos de usar */
+  margin-bottom: 10px; /* Añade margen inferior para separación */
+  font-size: 16px; /* Ajusta el tamaño de la fuente */
+}
+
+.textarea-from {
+  width: 100%; /* Asegura que los campos de texto se ajusten al ancho del contenedor */
+  padding: 8px; /* Añade padding para hacer los campos más cómodos de usar */
+  margin-bottom: 10px; /* Añade margen inferior para separación */
+  font-size: 16px; /* Ajusta el tamaño de la fuente */
+}
+
+.form-text {
+  font-size: 0.875em; /* Tamaño de fuente más pequeño para las instrucciones */
+  color: #6c757d; /* Color de texto gris claro */
+}
+
+
+.btn-submit {
+
+  background-color: #212529 !important;
+  height: 40px;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 5px;
+  padding: 0.5rem 1rem !important;
+  cursor: pointer;
+  transition: background-color 0.3s ease !important; /* Transición suave para el color de fondo */
+  font-size: 12px !important;
+}
+
+.btn-submit:hover{
+  background-color: #FAFA61 !important;
+  color: #000 !important;
+}
+
+
+
+
+
+.o  form {
+  display: grid ;
+  grid-template-columns: repeat(2,1fr);
+  padding-left:20px ;
+  margin: 20px;
+}
+
+.o{
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px #757575;
+   padding: 20px;
+}
+
+
+
+
+
+.recipe-grid {
+  display: flex;
+
+  gap: 5px; /* Espacio entre elementos */
+}
+
+.recipe-item {
+  border: 1px solid #ccc; /* Borde para las recetas */
+  padding: 5px;
+  background-color: #fff; /* Fondo blanco */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+.recipe-item img {
+  max-width: 100%; /* Imagen adaptable al contenedor */
+  height: auto;
+  border-radius: 5px; /* Bordes redondeados para la imagen */
+}
+
+.image-preview img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+}
+
+.title-my-recipe{
+  text-align: center;
+}
+
+.ver-mas {
+  margin: auto;
+  width: 200px;
+}
+
+.container-btn-submit{
+  grid-column: span 2;
+  text-align: center;
+}
+
+.cont-img{
+  margin: auto;
+  grid-column: span 2;
+}

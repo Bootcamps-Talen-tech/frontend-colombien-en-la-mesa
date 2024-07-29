@@ -4,19 +4,21 @@ import Button from 'react-bootstrap/Button';
 import StarRatings from 'react-star-ratings';
 import { Global } from '../../../helpers/Global';
 import '../../../assets/css/button.css';
+import { FaEdit, FaTrash } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom';
+import '../../../assets/css/user/edit.css';
 
-// Define y exporta el componente RecipeCard.
-const RecipeCard = ({ recipe, onReviewUpdated }) => {
-  // Define los estados locales para el componente.
-  const [showModal, setShowModal] = useState(false); // Controla la visibilidad del modal de calificación.
-  const [rating, setRating] = useState(recipe.userRating || 0); // Estado para la calificación del usuario.
-  const [comment, setComment] = useState(''); // Estado para el comentario del usuario.
-  const [errorMessage, setErrorMessage] = useState(''); // Estado para el mensaje de error.
-  const [showErrorModal, setShowErrorModal] = useState(false); // Controla la visibilidad del modal de error.
+const RecipeCard = ({ recipe, editMode, onReviewUpdated, onRecipeDeleted }) => {
+  const navigate = useNavigate(); // Inicializa useNavigate
+  const [showModal, setShowModal] = useState(false);
+  const [rating, setRating] = useState(recipe.userRating || 0);
+  const [comment, setComment] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [showErrorModal, setShowErrorModal] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
-  // Maneja el envío de la calificación y comentario.
   const handleReviewSubmit = async () => {
-    const token = localStorage.getItem('token'); // Obtiene el token de autenticación del localStorage.
+    const token = localStorage.getItem('token');
     try {
       const response = await fetch(`${Global.url}reviews/add/${recipe._id}`, {
         method: 'POST',
@@ -24,12 +26,11 @@ const RecipeCard = ({ recipe, onReviewUpdated }) => {
           'Content-Type': 'application/json',
           Authorization: token
         },
-        body: JSON.stringify({ rating, comment }) // Envía la calificación y el comentario en el cuerpo de la solicitud.
+        body: JSON.stringify({ rating, comment })
       });
 
       const data = await response.json();
 
-      // Maneja errores en la respuesta del servidor.
       if (!response.ok) {
         if (data.message === "Ya comentaste esta receta") {
           setErrorMessage(data.message);
@@ -40,33 +41,74 @@ const RecipeCard = ({ recipe, onReviewUpdated }) => {
         return;
       }
 
-      // Actualiza la calificación en el estado local.
       setRating(rating);
       setComment('');
-
-      // Cierra el modal de calificación.
       setShowModal(false);
 
-      // Llama a la función de actualización proporcionada como prop.
       if (onReviewUpdated) {
-        onReviewUpdated(recipe._id);
+        onReviewUpdated(recipe._id); // Llama a la función proporcionada como prop.
       }
     } catch (error) {
       console.error('Error al calificar y comentar la receta:', error.message);
     }
   };
 
+  const handleEdit = () => {
+    console.log('aqui',recipe._id)
+     navigate(`/colreceta/edit-recipe/${recipe._id}`);
+    
+  };
+
+  const handleDelete = async () => {
+    const token = localStorage.getItem('token');
+    try {
+      const response = await fetch(`${Global.url}recipes/delete-recipe/${recipe._id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: token
+        }
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Error al eliminar la receta');
+      }
+
+      // Cierra el modal de confirmación
+      setShowDeleteConfirm(false);
+
+      // Notifica al componente padre que la receta ha sido eliminada
+      if (onRecipeDeleted) {
+        onRecipeDeleted(recipe._id);
+      }
+    } catch (error) {
+      console.error('Error al eliminar la receta:', error.message);
+    }
+  };
+
   return (
-    <div className="card h-100">
-      {/* Imagen de la receta */}
-      <img src={`${Global.url}recipes/media/${recipe.image}`} className="card-img-top" alt={recipe.title} style={{ width: '100%', height: 'auto' }} />
+    <div className="card h-100 position-relative">
+      {editMode && (
+        <div className="edit-buttons">
+          <Button className="edit-btn" onClick={handleEdit}>
+            <FaEdit />
+          </Button>
+          <Button className="delete-btn" onClick={() => setShowDeleteConfirm(true)}>
+            <FaTrash />
+          </Button>
+        </div>
+      )}
+      <Link to={`/colreceta/p/${recipe._id}`}>
+        <img src={`${Global.url}recipes/media/${recipe.image}`} className="card-img-top" alt={recipe.title} style={{ width: '100%', height: 'auto' }} />
+      </Link>
       <div className="card-body">
-        {/* Título de la receta */}
-        <h5 className="card-title fs-3">{recipe.title}</h5>
-        {/* Descripción de la receta */}
+        <Link className='decoration-link' to={`/colreceta/p/${recipe._id}`}>
+          <h5 className="card-title fs-3">{recipe.title}</h5>
+        </Link>
         <p className="card-text fs-5">{recipe.description}</p>
-        <div>
-          {/* Calificación promedio de la receta */}
+        <div className='m-2'>
           <span className='fs-5'>Calificación: </span>
           <StarRatings
             rating={recipe.averageRating}
@@ -77,62 +119,79 @@ const RecipeCard = ({ recipe, onReviewUpdated }) => {
             name='averageRating'
             readOnly
           />
+          {!editMode && (
+            <Button className="custom-button" onClick={() => setShowModal(true)}>
+              Calificar
+            </Button>
+          )}
         </div>
-        {/* Botón para abrir el modal de calificación */}
-        <Button className="custom-button" variant="primary" onClick={() => setShowModal(true)}>
-          Calificar
-        </Button>
+
+        <div>
+          <Link className="custom-btn-2" to={`/colreceta/p/${recipe._id}`}>Ver detalles</Link>
+        </div>
       </div>
 
-      {/* Modal para calificar la receta */}
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Calificar Receta</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {/* Imagen y título de la receta en el modal */}
           <img src={`${Global.url}recipes/media/${recipe.image}`} className="card-img-top" alt={recipe.title} style={{ width: '100%', height: 'auto' }} />
           <h5 className="card-title modal-body fs-3">{recipe.title}</h5>
-          {/* Componente de calificación */}
           <StarRatings
             rating={rating}
             starRatedColor="gold"
             changeRating={(newRating) => setRating(newRating)}
             numberOfStars={5}
+            name='rating'
             starDimension="30px"
             starSpacing="2px"
-            name='userRating'
           />
-          {/* Área de texto para el comentario */}
           <textarea
+            className="form-control mt-2 fs-4"
+            rows="3"
+            placeholder="Deja tu comentario"
             value={comment}
             onChange={(e) => setComment(e.target.value)}
-            placeholder="Escribe un comentario..."
-            className="form-control mt-3 fs-4"
           />
         </Modal.Body>
         <Modal.Footer>
-          {/* Botones para cerrar el modal y enviar la calificación */}
-          <Button className="custom-button" variant="secondary" onClick={() => setShowModal(false)}>
-            Cerrar
-          </Button>
-          <Button className="custom-button" variant="primary" onClick={handleReviewSubmit}>
+          <Button className="custom-button" onClick={handleReviewSubmit}>
             Enviar
+          </Button>
+          <Button className="custom-button" onClick={() => setShowModal(false)}>
+            Cancelar
           </Button>
         </Modal.Footer>
       </Modal>
 
-      {/* Modal de error */}
       <Modal show={showErrorModal} onHide={() => setShowErrorModal(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Error</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {errorMessage}
+          <p>{errorMessage}</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button className="custom-button" variant="secondary" onClick={() => setShowErrorModal(false)}>
+          <Button className="custom-button" onClick={() => setShowErrorModal(false)}>
             Cerrar
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      <Modal show={showDeleteConfirm} onHide={() => setShowDeleteConfirm(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirmar Eliminación</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>¿Estás seguro de que deseas eliminar esta receta?</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button className="custom-button" onClick={handleDelete}>
+            Eliminar
+          </Button>
+          <Button className="custom-button" onClick={() => setShowDeleteConfirm(false)}>
+            Cancelar
           </Button>
         </Modal.Footer>
       </Modal>

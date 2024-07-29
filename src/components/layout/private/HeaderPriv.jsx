@@ -4,6 +4,7 @@ import { NavPriv } from "./NavPriv";
 // Importa una imagen desde la ruta especificada
 import foto from '../../../assets/img/foto.jpg'
 
+
 // Define y exporta el componente HeaderPriv
 export const HeaderPriv = () => {
   return (

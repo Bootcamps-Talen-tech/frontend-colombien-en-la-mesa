@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
     // Obtener datos del usuario identificado del localstorage
     const token = localStorage.getItem("token");
     const user = localStorage.getItem("user");
-    { console.log(user) }
+   
 
     // Comprobar si tengo el token y el user
     if (!token || !user) {

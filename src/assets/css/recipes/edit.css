@@ -1,0 +1,54 @@
+
+.conte-title{
+  text-align: center;
+  margin: 15px 0;
+  
+}
+.conte-title h2{
+ font-size: 45px;
+}
+.container-edit{
+  padding:20px ;
+  border: solid 1px #0003;
+  border-radius: 5px;
+  margin: 15px 45px;
+}
+
+.container-edit form{
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+ 
+}
+
+#ingredients, #instructions {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 130px; /* Ajusta esto según sea necesario */
+  
+}
+.container-edit form div{
+  padding: 12px;
+  font-size: 15px;
+} 
+
+.conte-edit {
+  display: flex;
+  background-color:#000;
+  justify-content: center;
+  align-items: center;
+  grid-column: span 2;
+  height: 45px;
+  width: 80px;
+  margin:12px auto;
+  font-size: 15px;
+  border-radius: 8px;
+}
+
+
+
+.conte-edit:hover , button:hover{
+  background: #FAFA61;
+  color: #000 !important;
+}

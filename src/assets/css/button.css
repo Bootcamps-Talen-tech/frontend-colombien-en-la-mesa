@@ -4,16 +4,21 @@
   color: #fff !important;
   border: none !important;
   padding: 0.5rem 1rem !important;
-  margin-top: 1rem !important; /* Ajusta el margen según tu diseño */
   cursor: pointer;
   transition: background-color 0.3s ease !important; /* Transición suave para el color de fondo */
   font-size: 12px !important;
-  
+  margin-left: 70px;
 }
 
 .custom-button:hover {
   background-color: #FAFA61 !important;
   color: #000 !important;
+}
+
+.decoration-link{
+  cursor: pointer;
+  text-decoration: none !important;
+  color: #000;
 }
 
 
@@ -24,8 +29,23 @@
   align-items: center !important;
   height: 50px;
   font-size: 15px !important;
+
+}
+
+.custom-btn-2{
+  display: flex !important;
+  justify-content: center !important;
+  width: 75px;
+  margin: auto;
+  font-size: 14px ;
+  text-decoration: none;
   
 }
+
+.custom-btn-2:hover {
+  color:#000  !important;
+}
+
 
 .custom-btn:hover {
   background-color: #FAFA61   !important ;
@@ -35,8 +55,8 @@
 
 .col-3 {
   margin: 25px auto;
-
 }
+
 /*estilo del modal de calificacion*/
 .modal-dialog {
   display: flex;
@@ -51,4 +71,11 @@
 
   overflow-y: hidden; 
   overflow-x: hidden; 
+}
+
+.conte-recetas-two {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Ajusta el ancho mínimo y máximo de las columnas */
+  gap: 20px; /* Espacio entre las tarjetas */
+  padding: 10px; /* Espacio interno alrededor del contenedor */
 }
